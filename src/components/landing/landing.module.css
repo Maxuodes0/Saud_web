@@ -6,38 +6,45 @@
 
 .sectionNav {
   position: fixed;
-  top: 50%;
-  right: clamp(8px, 1.4vw, 18px);
-  transform: translateY(-50%);
+  top: clamp(10px, 1.5vw, 18px);
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 80;
-  width: clamp(108px, 9vw, 148px);
-  pointer-events: auto;
+  width: min(96vw, 760px);
+  pointer-events: none;
+}
+
+.sectionNavToggle {
+  display: none;
 }
 
 .sectionNavList {
+  pointer-events: auto;
   list-style: none;
   margin: 0;
   padding: 8px;
-  border-radius: 20px;
+  border-radius: 999px;
   border: 1px solid rgba(255, 255, 255, 0.16);
-  background: rgba(8, 10, 14, 0.52);
+  background: rgba(8, 10, 14, 0.7);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  display: grid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   gap: 6px;
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.32);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3);
 }
 
 .sectionNavLink {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  justify-content: flex-start;
-  min-height: 36px;
-  padding: 0 12px;
-  border-radius: 10px;
+  justify-content: center;
+  min-height: 34px;
+  padding: 0 14px;
+  border-radius: 999px;
   color: rgba(244, 248, 255, 0.9);
   font-family: var(--font-space-grotesk), var(--font-cairo), sans-serif;
-  font-size: clamp(11px, 0.85vw, 13px);
+  font-size: clamp(12px, 0.95vw, 14px);
   font-weight: 600;
   letter-spacing: 0.01em;
   transition: background 180ms ease, color 180ms ease;
@@ -564,17 +571,57 @@
 
 @media (max-width: 900px) {
   .sectionNav {
-    top: auto;
-    bottom: 12px;
-    right: 10px;
-    transform: none;
-    width: 112px;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 14px);
+    pointer-events: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .sectionNavToggle {
+    display: inline-flex;
+    width: 42px;
+    height: 42px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: rgba(8, 10, 14, 0.72);
+    color: rgba(246, 250, 255, 0.94);
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+  }
+
+  .sectionNavToggle svg {
+    width: 20px;
+    height: 20px;
   }
 
   .sectionNavList {
+    position: absolute;
+    right: 0;
+    bottom: 50px;
+    width: 120px;
     gap: 4px;
     padding: 6px;
     border-radius: 14px;
+    display: grid;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(8px) scale(0.98);
+    transition:
+      opacity 180ms ease,
+      transform 180ms ease;
+  }
+
+  .sectionNavListMobileOpen {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0) scale(1);
   }
 
   .sectionNavLink {
