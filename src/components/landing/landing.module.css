@@ -16,6 +16,8 @@
 
 .sectionNavToggle {
   display: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .sectionNavList {
@@ -571,10 +573,12 @@
 
 @media (max-width: 900px) {
   .sectionNav {
-    top: 8px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: calc(100% - 14px);
+    top: 10px;
+    right: 10px;
+    left: auto;
+    transform: none;
+    width: auto;
+    z-index: 120;
     pointer-events: auto;
     display: flex;
     flex-direction: column;
@@ -604,8 +608,9 @@
   .sectionNavList {
     position: absolute;
     right: 0;
-    bottom: 50px;
-    width: 120px;
+    top: 50px;
+    bottom: auto;
+    width: 138px;
     gap: 4px;
     padding: 6px;
     border-radius: 14px;
