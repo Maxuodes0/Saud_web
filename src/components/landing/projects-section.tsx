@@ -11,7 +11,7 @@ type ProjectsSectionProps = {
 
 export function ProjectsSection({ titleClassName }: ProjectsSectionProps) {
   return (
-    <section className={styles.projectsSection} id="projects">
+    <section className={styles.projectsSection} id="services">
       <h2 className={`${titleClassName} ${styles.projectsHeading}`}>
         {PROJECTS_HEADING_WORDS.map((word, index) => (
           <motion.span

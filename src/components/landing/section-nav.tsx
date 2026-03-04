@@ -6,7 +6,7 @@ import styles from "./landing.module.css";
 
 const NAV_ITEMS = [
   { label: "Home", href: "#home" },
-  { label: "Projects", href: "#projects" },
+  { label: "Services", href: "#services" },
   { label: "Gallery", href: "#gallery-grid" },
   { label: "Clients", href: "#clients" },
   { label: "Contact", href: "#contact" },

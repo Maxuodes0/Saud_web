@@ -1,11 +1,11 @@
 "use client";
 
+import type { SVGProps } from "react";
 import { motion } from "framer-motion";
 import {
   Instagram,
   Linkedin,
   Mail,
-  Twitter,
   Youtube,
   type LucideIcon,
 } from "lucide-react";
@@ -19,9 +19,19 @@ import {
   type SocialAccount,
 } from "./landing-data";
 
-const socialIconMap: Record<SocialAccount["icon"], LucideIcon> = {
+function XBrandIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 512 512" fill="currentColor" aria-hidden="true" {...props}>
+      <path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L273.1 180.9 389.2 48zM364.4 421.8h39.1L151.2 88h-42z" />
+    </svg>
+  );
+}
+
+type SocialIconComponent = LucideIcon | ((props: SVGProps<SVGSVGElement>) => JSX.Element);
+
+const socialIconMap: Record<SocialAccount["icon"], SocialIconComponent> = {
   instagram: Instagram,
-  x: Twitter,
+  x: XBrandIcon,
   linkedin: Linkedin,
   youtube: Youtube,
   email: Mail,
